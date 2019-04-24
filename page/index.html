@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map</title>
+    <script src="https://js.arcgis.com/4.11/"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/themes/light/main.css"/>
+
+    <style>
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+      }
+    </style>
+
+
+</head>
+<body>
+    
+    <!-- <script>
+        require(["esri/Map",
+                  "esri/views/MapView",
+                  "esri/layers/WMSLayer",
+        function(Map, MapView, WMSLayer) {
+              
+        var map = new Map({
+          basemap: "streets",
+        //   Layers: [layer]
+          });
+          
+        //   var layer = new WMSLayer({
+        //     url: "http://map.land.gov.ua/geowebcache/service/wms?tiled=true",
+        //     layers: 'kadastr',
+        //     format: 'image/png',
+        //     transparent: true,
+        //     attribution: "Kadastr",
+        //     zIndex: 10,
+        //     maxNativeZoom: 16,
+          //   sublayers: [
+          //     {
+          //       name: "kadastr",
+          //       title: "kadastr",
+          //       visible: true
+          //     }
+          // ]
+        // }); 
+         
+      
+          var view = new MapView({
+            container: "viewDiv",
+            map: map,
+            zoom: 8,
+            center: [30.85,48.73] // longitude, latitude
+          });
+        });
+      
+      </script> -->
+
+      <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/WMSLayer"
+      ], function(Map, MapView, WMSLayer) {
+        var layer = new WMSLayer({
+          url: "http://map.land.gov.ua/geowebcache/service/wms?tiled=true",
+          sublayers: [
+            {
+              name: "grunt"
+            }
+          ]
+        });
+
+        var map = new Map({
+          basemap: "sreets",
+        //   Layers: [layer]
+        });
+
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          zoom: 8,
+          center: [30.85,48.73]
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+</body>
+</html>
