@@ -28,11 +28,17 @@
         ], function(Map, MapView, WMSLayer) {
           var layer = new WMSLayer({
             url: "http://map.land.gov.ua/geowebcache/service/wms?tiled=true",
-            sublayers: [
-              {
-                name: "grunt"
-              }
-            ]
+            layers: 'kadastr',
+            format: 'image/png',
+            transparent: true,
+            attribution: "Kadastr",
+            zIndex: 10,
+            maxNativeZoom: 16
+            // sublayers: [
+            //   {
+            //     name: "grunt"
+            //   }
+            // ]
           });
   
           var map = new Map({
