@@ -1,1 +1,90 @@
-Hello World
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.13/esri/css/esri.css">   
+    <link rel="stylesheet" type="text/css" href="http://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">   
+      <style>
+        /* Set the responsive map size here */
+         #mapDiv {
+         min-height:100px; 
+         max-height:500px; 
+          }
+      </style>
+    
+    <title>Probable</title>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="https://probable.github.io">
+    <img src="img/favicon.png" alt="Logo" style="width:40px;">
+  </a>
+
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="https://probable.github.io">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="pages/test.html">Test</a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Pages
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Page 1</a>
+        <a class="dropdown-item" href="#">Page 2</a>
+        <a class="dropdown-item" href="#">Page 3</a>
+      </div>
+    </li>
+   </ul>
+</nav>
+<br>
+
+<div class="container">
+  <h3>Lorem</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+    
+<div id="mapDiv"></div>    
+
+    <script type="text/javascript">
+        var package_path = "//esri.github.com/bootstrap-map-js/src/js";
+        var dojoConfig = {
+            packages: [{
+                name: "application",
+                location: package_path
+            }]
+        };
+    </script>
+    <script src="//js.arcgis.com/3.13compact"></script>
+    <script>
+      require(["application/bootstrapmap", "dojo/domReady!"], 
+        function(BootstrapMap) {
+          // Get a reference to the ArcGIS Map class
+          var map = BootstrapMap.create("mapDiv",{
+            basemap:"national-geographic",
+            center:[-122.45,37.77],
+            zoom:12,
+            scrollWheelZoom: false
+          });
+      });
+    </script>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
